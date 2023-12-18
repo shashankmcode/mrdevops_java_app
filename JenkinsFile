@@ -27,11 +27,20 @@ pipeline {
             }
         }
     }
-    stage('Static code') { // Rename the stage to avoid conflicts
+    stage('Staticcode Analysis') { // Rename the stage to avoid conflicts
         when{ expression { params.action == 'create'} }
             steps {
                 script {
                     staticcodeanalysis()
+                    
+            }
+        }
+    }
+    stage('QualityGate Analyssis') { // Rename the stage to avoid conflicts
+        when{ expression { params.action == 'create'} }
+            steps {
+                script {
+                    qualitycode()
                     
             }
         }

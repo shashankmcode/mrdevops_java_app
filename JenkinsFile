@@ -6,14 +6,18 @@ pipeline {
         stage('Build') {
             steps {
                 
-                    gitCheckout(
-                        branch: "main" ,
-                        url: "https://github.com/shashankmcode/mrdevops_java_app.git"
-                    )
-                }
-            }
-
-            
+                    git branch: 'main',
+                        credentialsId: 'yourCredentialsId', // Add your credentials ID
+                        url: 'https://github.com/shashankmcode/mrdevops_java_app.git'
+                
             }
         }
-    
+        
+        stage('maven test') { // Rename the stage to avoid conflicts
+            steps {
+                script {
+                    test1()
+            }
+        }
+    }
+}

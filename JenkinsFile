@@ -2,6 +2,10 @@
 
 pipeline {
     agent any
+    parameters {
+    choice choices: ['create', 'deny'], description: 'choose one', name: 'action'
+   }
+
     stages {
         stage('Build') {
             steps {

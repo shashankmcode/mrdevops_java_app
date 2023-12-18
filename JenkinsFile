@@ -45,7 +45,7 @@ pipeline {
             }
         }
     }
-    stage('Build') { // Rename the stage to avoid conflicts
+    stage('MavenBuild') { // Rename the stage to avoid conflicts
         when{ expression { params.action == 'create'} }
             steps {
                 script {
